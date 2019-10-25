@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(10, 10, 10);
+    color: rgb(241, 239, 239);
+}
+div {
+    margin: 0 auto;
+    width: 1000px;
+    margin-top: 10rem;
+}
+
+nav {
+    margin-top: 5rem;
+}
+
+img {
+    width: 100%;
+}

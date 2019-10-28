@@ -76,3 +76,4 @@ If the input is unchecked, but our checksArr says it should be checked then we c
         }
     }
 
+For this particular example the algorithm could have been sped up by just going to the index's that had 1's and checking them in, but this only loops through the list once so it is still efficient.

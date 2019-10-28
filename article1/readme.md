@@ -1,17 +1,15 @@
-#Using JavaScript to speed up a repetitive task.
+# Using JavaScript to speed up a repetitive task.
 
-This isn't a look at all the possibilities of what can be sped up / automated using JavaScript.
-But as a beginner this is one use that I discovered and hope to explore more. Possibly as a browser plugin or a node.js project someday.
-
+This is a quick walk through of how I sped up a task using JavaScript.
 The example in this tutorial is based on a situation I came across at work.
 
-Imagine you had the task of looking through two identical lists of inputs, where you wanted to be sure one of the lists has the same checkboxes checked in as the first.
+Imagine you had two identical lists of labels with checkboxes. For the task you have to check and make sure that the second list has the all of inputs checked in that the first one has.
 
 This may be a very simple and specific example, but it makes it a good place to start.
 
-![ List One ](img/list1.png "List One")    ![ List Two ](img/list2.png "List 2")
+![ List One ](img/list1.png "List One")  ![ List Two ](img/list2.png "List 2")
 
-I was a third of the way through manually checking in boxes on the second list to match the first list when I realized that their was a smarter way to do this.
+I was a third of the way through manually checking in boxes on the second list when I realized their was a smarter way of doing this.
 
 My idea was to write a script to traverse the dom and store information about my first list, and then applying that data to the second list. 
 
@@ -38,12 +36,12 @@ Looking at any individual selected element you can see that there is a 'checked'
 
 ![ Figure One ](img/fig1.png "Input properties")
 
-I used the .map array method. .map will take a callback function that runs on each element in the array. 
- I'll check `if (box.checked)` which is equivelent to writing `if (box.checked == true)`. Then return a value, 1 for checked, 0 for unchecked.
+I used the .map array method to loop through the list. .map will take a callback function that runs on each element in the array. 
+ I'll check `if (box.checked == true)`. Then return a value, 1 for checked, 0 for unchecked.
 
     // Returns an array, 0 for unchecked, 1 for checked.
     var checksArr = allBoxes.map(function(box){
-        if(box.checked){
+        if(box.checked == true){
             return 1;
         }else{
             return 0;
@@ -52,7 +50,7 @@ I used the .map array method. .map will take a callback function that runs on ea
 
 This stores a series of 1's and 0's into the checksArr, directly corresponding to the list of checkboxes in our list.
 
-So far everything we have done has been on the first list, now we need a way to use this data on the second list. Without learning how to do some kind of local storage saving and loading (which I plan to learn next), I used this to copy the array:
+So far everything we have done has been on the first list, now we need a way to use this data on the second list. Without learning how to do some kind of local storage saving and loading (which I plan on learning next), I used this to copy the array:
 
     // copy to clipboard.
     copy(JSON.stringify(checksArr));
@@ -69,7 +67,7 @@ And now repeating what we did on the first list, we need to store all of the inp
 
     var allBoxes = Array.from( document.querySelectorAll('input[type="checkbox"]') );
 
-All we need to do is loop through the list, looking to see if the value is checked, while also looking at the checkArr array value for that index. 
+All we need to do is loop through the list, looking to see if the value is checked, while also looking at the checkArr array value for that index's value. 
 If the input is unchecked, but our checksArr says it should be checked then we check it in.
 
     for(let i = 0; i < checksArr.length; i++) {

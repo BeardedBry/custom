@@ -1,23 +1,23 @@
-# Using JavaScript to speed up a repetitive task.
+# Using JavaScript to Copy Form Inputs
 
-This is a quick walk through of how I sped up a task using JavaScript.
-The example in this tutorial is based on a situation I came across at work.
+Imagine you had two identical lists of checkboxes on two seperate web pages. 
+For this task you have to make sure that the second list has all of the same inputs checked-in as the first list.
 
-Imagine you had two identical lists of labels with checkboxes. For the task you have to check and make sure that the second list has the all of inputs checked in that the first one has.
+https://codepen.io/Bearded1/pen/abbVypQ  https://codepen.io/Bearded1/pen/yLLPobp
 
-This may be a very simple and specific example, but it makes it a good place to start.
+Breaking down the problem into smaller tasks:
 
-![ List One ](img/list1.png "List One")  ![ List Two ](img/list2.png "List 2")
-
-I was a third of the way through manually checking in boxes on the second list when I realized their was a smarter way of doing this.
-
-My idea was to write a script to traverse the dom and store information about my first list, and then applying that data to the second list. 
+1.  Traverse the DOM of the **first** list and store information about the inputs. 
+2.  Bring that data over to the webpage with the second list.
+3.  Traverse the DOM of the **second** list and store information about the inputs.
+4.  Compare the data from the first list with the second, and make the needed changes to the DOM.
 
 I did all of my work in the console.
 
-### On List One
+### 1. 
 
-I began by selecting all of the checkbox inputs and storing them in the variable **allBoxes**:
+On List One
+I began by selecting all of the checkbox inputs and storing them in a variable called **allCheckboxes**:
 
     var allBoxes = Array.from( document.querySelectorAll('input[type="checkbox"]') );
 

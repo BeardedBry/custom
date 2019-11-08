@@ -40,7 +40,6 @@ Returning 'true' for checked in boxes or 'false' otherwise.
         return box.checked;
     });
 
-This stores either 'true' or 'false' into the checksArray, directly corresponding to the list of checkboxes in our list.
 
 ### 2.
 

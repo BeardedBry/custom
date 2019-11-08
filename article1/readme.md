@@ -56,8 +56,7 @@ Now the array values is stored in my clipboard.
 
 I can now paste this into a variable in the console on the page with my second list.
 
-![ Figure Two ](img/fig2.png "Paste data into variable")
-
+    var checksArray = [false, false, true, false, ...]
 
 ### 3.
 

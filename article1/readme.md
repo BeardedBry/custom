@@ -46,7 +46,7 @@ I used the .map array method to loop through the list. .map will take a callback
 
 This stores either 'true' or 'false' into the checksArray, directly corresponding to the list of checkboxes in our list.
 
-### 2
+### 2.
 
 So far everything we have done has been on the first list, now we need a way to use this data on the second list. I used this to copy the array to my clipboard:
 
@@ -63,14 +63,14 @@ I can now paste this into a variable in the console on the page with my second l
 ![ Figure Two ](img/fig2.png "Paste data into variable")
 
 
-### 3
+### 3.
 
 And now repeating what we did on the first list, we need to store all of the inputs in a variable.
 
     var allBoxes = Array.from( document.querySelectorAll('input[type="checkbox"]') );
 
 
-### 4
+### 4.
 
 All we need to do is loop through the list, looking to see if the value is checked, while also looking at the checkArray values for that index. 
 If the input is unchecked, but our checksArray says it should be checked then we check it in.
@@ -85,6 +85,7 @@ If the input is unchecked, but our checksArray says it should be checked then we
 ## Taking it further.
 What are some ways this could done more efficiently or extended for more use cases?
 Could the algorithm for checking boxes be made more efficient?
+Could you store the values at the same time as grabbing all the inputs?
 
      
 

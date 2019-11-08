@@ -40,40 +40,51 @@ I used the .map array method to loop through the list. .map will take a callback
  I'll check `if (box.checked == true)`. Then return a value, 1 for checked, 0 for unchecked.
 
     // Returns an array, 0 for unchecked, 1 for checked.
-    var checksArr = allBoxes.map(function(box){
-        if(box.checked == true){
-            return 1;
-        }else{
-            return 0;
-        }
+    var checksArray = allBoxes.map(function(box){
+        return box.checked;
     });
 
-This stores a series of 1's and 0's into the checksArr, directly corresponding to the list of checkboxes in our list.
+This stores either 'true' or 'false' into the checksArray, directly corresponding to the list of checkboxes in our list.
 
-So far everything we have done has been on the first list, now we need a way to use this data on the second list. Without learning how to do some kind of local storage saving and loading (which I plan on learning next), I used this to copy the array:
+### 2
+
+So far everything we have done has been on the first list, now we need a way to use this data on the second list. I used this to copy the array to my clipboard:
 
     // copy to clipboard.
-    copy(JSON.stringify(checksArr));
+    copy(JSON.stringify(checksArray));
 
 Now the array of 1's and 0's is stored in my clipboard.
 
-### On List Two
+#### On List Two
 
 I can now paste this into a variable in the console on the page with my second list.
 
 ![ Figure Two ](img/fig2.png "Paste data into variable")
 
+
+### 3
+
 And now repeating what we did on the first list, we need to store all of the inputs in a variable.
 
     var allBoxes = Array.from( document.querySelectorAll('input[type="checkbox"]') );
 
-All we need to do is loop through the list, looking to see if the value is checked, while also looking at the checkArr array value for that index's value. 
-If the input is unchecked, but our checksArr says it should be checked then we check it in.
 
-    for(let i = 0; i < checksArr.length; i++) {
-        if(allBoxes[i].checked == false && checksArr[i] == 1){
+### 4
+
+All we need to do is loop through the list, looking to see if the value is checked, while also looking at the checkArray values for that index. 
+If the input is unchecked, but our checksArray says it should be checked then we check it in.
+
+    for(let i = 0; i < checksArray.length; i++) {
+        if(allBoxes[i].checked === false && checksArray[i] === true){
             allBoxes[i].checked = true;
         }
     }
 
-For this particular example the algorithm could have been sped up by just going to the index's that had 1's and checking them in, but this only loops through the list once so it is still efficient.
+
+## Taking it further.
+What are some ways this could done more efficiently or extended for more use cases?
+Could the algorithm for checking boxes be made more efficient?
+
+     
+
+

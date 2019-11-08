@@ -25,11 +25,7 @@ I'd like to use array methods on this so I used `Array.from()` to turn the selec
 
 `querySelectorAll()` will return a nodelist, which is an array-like list of html DOM elements. A nice thing about this method is that any valid CSS selector can be used, even pseudo-classes.
 
-On the original lists I was working with, there were hidden checkbox's with the class of 'fake-checkbox' on them. Also the inputs were nested in tables. I had to use a selector like this to get what I needed: 
-`document.querySelectorAll('td.checkbox input:not(.fake-checkbox)');`
-
-Now I have a list of the checkboxes, all I need for this task is to know whether or not they are checked in or not.
-In some scenarios I may want to keep the label name or some other identifying information, but because this is a simple example with both lists having the same inputs all we need to know is the checked value in the order that they appear.
+Now I have a list of the checkboxes, all we need to know is the checked value and the order in which they appear.
 
 Looking at any individual selected element you can see that there is a 'checked' property with either the value `true` or `false`.
 `console.dir(allBoxes[0])`
@@ -37,7 +33,7 @@ Looking at any individual selected element you can see that there is a 'checked'
 ![ Figure One ](img/fig1.png "Input properties")
 
 I used the .map array method to loop through the list. .map will take a callback function that runs on each element in the array. 
- I'll check `if (box.checked == true)`. Then return a value, 1 for checked, 0 for unchecked.
+Returning 'true' for checked in boxes or 'false' otherwise.
 
     // Returns an array, 0 for unchecked, 1 for checked.
     var checksArray = allBoxes.map(function(box){
@@ -85,7 +81,7 @@ If the input is unchecked, but our checksArray says it should be checked then we
 ## Taking it further.
 What are some ways this could done more efficiently or extended for more use cases?
 Could the algorithm for checking boxes be made more efficient?
-Could you store the values at the same time as grabbing all the inputs?
+Could you store the values at the same time as mapping all the input values?
 
      
 

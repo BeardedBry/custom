@@ -50,11 +50,12 @@ This stores either 'true' or 'false' into the checksArray, directly correspondin
 
 So far everything we have done has been on the first list, now we need a way to use this data on the second list. I used this to copy the array to my clipboard:
 
-    // copy to clipboard.
+    // copy to clipboard in Chrome or Firefox
     copy(JSON.stringify(checksArray));
 
-Now the array of 1's and 0's is stored in my clipboard.
+Now the array values is stored in my clipboard.
 
+-------------------------------------------------------------------------------------------------------
 #### On List Two
 
 I can now paste this into a variable in the console on the page with my second list.

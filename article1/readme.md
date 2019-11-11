@@ -17,7 +17,7 @@ I did all of my work in the console.
 ### 1. 
 
 On List One
-I began by selecting all of the checkbox inputs and storing them in a variable called **allCheckboxes**:
+I began by selecting all of the checkbox inputs and storing them in a variable called **allBoxes**:
 
     var allBoxes = Array.from( document.querySelectorAll('input[type="checkbox"]') );
 
